@@ -57,13 +57,23 @@ def parallel():
 def sim():
     sim_items = {}
     for item in Items:
-        sim_items[item] = 1000
-    simulate("simulate", Unlocks, sim_items, {}, 0, 10)
+        sim_items[item] = 1000000
+    simulate("power", Unlocks, sim_items, {}, 0, 10)
 
-clear()
-change_hat(Hats.Top_Hat)
-# parallel()
-# utils.dino()
-# cactus.main()
-# maze.main()
-leaderboard_run(Leaderboards.Maze_Single, "maze", 1000)
+def main():
+	clear()
+	change_hat(Hats.Top_Hat)
+
+	# parallel()
+	# utils.dino()
+	# cactus.main()
+	# maze.main()
+	# pumpkin.main()
+	power.main()
+
+	# sim()
+	# leaderboard_run(Leaderboards.Maze_Single, "maze", 1000)
+
+
+if __name__ == "__main__":
+    main()

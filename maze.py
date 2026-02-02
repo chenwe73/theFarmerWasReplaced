@@ -29,15 +29,14 @@ def dfs(visited, graph):
             return True
         utils.move_to(x,y)
 
-def pop_index(queue, treasure, alpha=1):
+def pop_index(queue, treasure):
     result = 0
     min_cost = get_world_size()**2
     for i in range(len(queue)):
-        path = queue[i]
-        dist = utils.dist(path[-1], treasure)
-        cost = alpha * len(path) + (1 - alpha) * dist
-        if cost < min_cost:
-            min_cost = cost
+        pos = queue[i]
+        dist = utils.dist(pos, treasure)
+        if dist < min_cost:
+            min_cost = dist
             result = i
     return result
 
@@ -56,8 +55,9 @@ def bfs(graph):
     treasure = measure()
     trace = {}
     while queue:
-        # qi = pop_index(queue, treasure, 1)
+        # qi = pop_index(queue, treasure)
         qi = 0
+        time = get_time()
         pos = queue.pop(qi)
         if pos == treasure:
             path = backtrack(trace, treasure)
