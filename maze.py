@@ -41,23 +41,33 @@ def pop_index(queue, treasure, alpha=1):
             result = i
     return result
 
+def backtrack(trace, treasure):
+    path = [treasure]
+    node = treasure
+    while node in trace:
+        node = trace[node]
+        path.append(node)
+    return path[::-1]
+
 def bfs(graph):
     pos = utils.get_pos()
     visited = {pos}
-    queue = [[pos]]
+    queue = [pos]
     treasure = measure()
+    trace = {}
     while queue:
         # qi = pop_index(queue, treasure, 1)
         qi = 0
-        path = queue.pop(qi)
-        pos = path[-1]
+        pos = queue.pop(qi)
         if pos == treasure:
+            path = backtrack(trace, treasure)
             return path
         for n in graph[pos]:
             if n in visited:
                 continue
-            queue.append(path+[n])
+            queue.append(n)
             visited.add(n)
+            trace[n] = pos
     return []
 
 def update_graph(graph):
