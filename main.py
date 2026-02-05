@@ -57,8 +57,8 @@ def parallel():
 def sim():
     sim_items = {}
     for item in Items:
-        sim_items[item] = 1000000
-    simulate("power", Unlocks, sim_items, {}, 0, 10)
+        sim_items[item] = 1000000000
+    simulate("pumpkin", Unlocks, sim_items, {}, 0, 10)
 
 def main():
 	clear()
@@ -69,9 +69,9 @@ def main():
 	# cactus.main()
 	# maze.main()
 	# pumpkin.main()
-	power.main()
+	# power.main()
 
-	# sim()
+	sim()
 	# leaderboard_run(Leaderboards.Maze_Single, "maze", 1000)
 
 
